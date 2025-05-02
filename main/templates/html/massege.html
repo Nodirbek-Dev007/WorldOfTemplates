@@ -1,0 +1,35 @@
+{% autoescape off %}
+<div style="font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #f4f4f4;">
+    <div style="max-width: 500px; margin: auto; background: #ffffff; padding: 20px; border-radius: 10px;">
+        <h2 style="color: #333;">Verify Your Email</h2>
+        <p style="font-size: 18px; color: #555;">
+            Hello, <strong>{{ user }}</strong>,
+        </p>
+        <p style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size:  18px; color: #555;">
+            Click the button below to verify your email:
+        </p>
+
+        <a href="{{ protocol }}://{{ domain }}{% url 'activate' uidb64=uid token=token %}" 
+           style="color: white;
+           font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+           font-size: 15px;
+           padding-left: 20px;
+           padding-right: 20px;
+           padding-top: 10px;
+           padding-bottom: 10px;
+           background: linear-gradient(45deg, #219ebc, #00ff88);
+           border-style: none;
+           border-radius: 35px;
+           margin-top: 20px;
+           width: 240px;
+           height: 60px;
+           transition: 0.5s;">
+            Verify Email
+        </a>
+
+        <p style="font-size: 14px; color: #888; margin-top: 20px;">
+            If you didn’t request this, please ignore this email.
+        </p>
+    </div>
+</div>
+{% endautoescape %}

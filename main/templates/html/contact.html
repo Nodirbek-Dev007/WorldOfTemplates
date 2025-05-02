@@ -1,0 +1,29 @@
+{% extends 'html/main.html' %}
+
+{% load static %}
+
+
+    {% block content %}
+
+    <link rel="stylesheet" href="{% static '/css/service.css' %}">
+<div style="display: flex; align-items: center; justify-content: center; margin-top: 100px;">
+    <div class="container">
+        <h3>Any problems with presentations?</h3>
+        <h3>Contact us, we will fix issues</h3>
+        <h3>You need a template for PPTX presentations?</h3>
+        <h3>Want us to create a website for you?</h3>
+        <h3>We can help you create</h3>
+        <h1>Contact Us</h1>
+        <div class="contact-box">
+            <div class="box">
+                <h3>Email:</h3>
+                <p>Example@gmail.com</p>
+            </div>
+            <div class="box">
+                <h3>Phone:</h3>
+                <p>+9998989898</p>
+            </div>
+        </div>
+    </div>
+</div>
+    {% endblock %}

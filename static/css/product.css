@@ -1,0 +1,211 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000000;
+  padding-top: 30px;
+}
+
+/* Container for the entire section */
+.total {
+  padding: 4rem 1rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), #1f2937); /* from black to dark gray */
+  text-align: center;
+  border-radius: 10px;
+}
+
+.temp-main{
+  margin-left: 30px;
+}
+
+/* Section Title */
+.first-section {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Section Title for Related Items */
+.relatedparagraph {
+  font-size: 2rem;
+  font-weight: 700;
+  color: transparent;
+  background: linear-gradient(to right, #00ff88, #219ebc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin-bottom: 2rem;
+}
+
+/* Second Section Layout */
+.second-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.second-overview {
+  flex: 2;
+}
+
+.second-notes {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+/* Grid Layout for Related Items */
+.related {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+@media (min-width: 640px) {
+  .related {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .related {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Individual Product Card */
+.related-presentations {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  transition: box-shadow 0.3s ease, transform 0.3s;
+}
+
+.related-presentations:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+  transform: translateY(-10px); /* Maintains original hover effect */
+}
+
+/* Product Image */
+.related-photo {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  display: block;
+  border-bottom: 2px solid #ddd; /* Retained from original */
+}
+
+/* Product Name Button */
+.relatedp-format {
+  width: 100%;
+  padding: 0.75rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(to right, #219ebc, #00ff88);
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.relatedp-format:hover {
+  background: linear-gradient(to left, #219ebc, #00ff88);
+}
+
+/* Presentation Photo */
+.presentation-photo {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Buttons for Presentation */
+.buttons-presentation {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.download-button {
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.download-button {
+  background: linear-gradient(to right, #00ff88, #219ebc);
+  color: white;
+  border: none;
+  margin-top: 20px;
+  font-size: 18px;
+  width: 100%;
+}
+
+.download-button:hover {
+  background: linear-gradient(to left, #00ff88, #219ebc);
+  box-shadow: 0 0 10px #00ff88;
+}
+
+/* Presentation Info */
+.name-presentation {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.info-presentation {
+  font-size: 16px;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+/* Slide Thumbnails */
+.slide-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin: 10px 0;
+  padding: 20px;
+  background-color: #000000;
+}
+
+.slide-thumbnail {
+  max-width: 11%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.slide-thumbnail:hover {
+  transform: scale(1.1);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .slide-thumbnail {
+    max-width: 40px;
+  }
+  .related-presentations {
+    width: 100%; /* Adjusted to full width for consistency */
+    max-width: 340px; /* Maintains new max-width */
+  }
+}
+
+@media (max-width: 480px) {
+  .related-presentations {
+    width: 100%;
+    max-width: 340px;
+  }
+}

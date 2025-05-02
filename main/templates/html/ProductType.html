@@ -1,0 +1,22 @@
+{% extends 'html/main.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
+
+<div class="total">
+
+  <!-- Related presentations section -->
+  <p class="relatedparagraph">Related presentations</p>
+  <div class="related">
+    {% for related in relateds %}
+    <a class="related-presentations" href="{% url 'Product' related.id %}">
+        <img class="related-photo" src="{{ related.image_preview }}" alt="Related {{ related.product_name }}">
+        <button class="relatedp-format">{{related.product_name}}</button>
+    </a>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% endblock %}

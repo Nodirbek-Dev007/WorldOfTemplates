@@ -1,0 +1,113 @@
+   /* Global Styles */
+   body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #0a0a0a;
+    overflow-x: hidden;
+}
+
+/* Neon Text Effect */
+.neon-text {
+    color: #00ff88;
+    text-shadow: 0 0 5px #00ff88, 0 0 10px #00ff88, 0 0 20px #219ebc;
+    animation: neon-flicker 2s infinite alternate;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+h2{
+    margin-top: 20px;
+}
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes pulse {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.5;
+  }
+}
+
+/* Parallax Background */
+.parallax-bg {
+    transform: translateZ(0);
+    will-change: transform;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Banner Section */
+.banner_section {
+    position: relative;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), #1f2937);
+}
+
+.banner_taital {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Search Form */
+.search-form input {
+    transition: all 0.3s ease;
+}
+
+.search-form input:focus + .autocomplete {
+    display: block;
+}
+
+/* Product Cards */
+.related-presentations {
+    transform: translateZ(0);
+}
+
+.related-photo {
+    transition: transform 0.3s ease;
+}
+
+.related-presentations:hover .related-photo {
+    transform: scale(1.05);
+}
+
+/* Particle Animation */
+#particle-canvas {
+    opacity: 0.3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .banner_taital {
+        font-size: 2.5rem;
+    }
+    .related-presentations {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner_taital {
+        font-size: 1.8rem;
+    }
+    .search-form input {
+        padding: 0.75rem 5rem 0.75rem 1rem;
+    }
+    .search-form button {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

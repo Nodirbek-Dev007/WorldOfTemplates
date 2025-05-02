@@ -1,0 +1,91 @@
+{% extends 'html/main.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
+
+<div class="total">
+  <div class="first-section">{{ product.product_name }}</div>
+  <div class="second-section">
+    <div class="second-overview">
+      {% if product.status == 'failed' %}
+        <div class="alert alert-danger">
+          <p>An error occurred while processing your presentation: {{ product.error_message }}</p>
+        </div>
+      {% else %}
+        {% if slide_urls %}
+          <img class="presentation-photo" src="{{ slide_urls.0 }}" alt="First Slide Preview" id="mainPreview">
+        {% else %}
+          <img class="presentation-photo" src="{% static 'images/slide1.JPG' %}" alt="Default Preview" id="mainPreview">
+        {% endif %}
+      {% endif %}
+    </div>
+    <div class="second-notes">
+      <a href="{% url 'download' product.product_name %}" target="_blank">
+        <button class="download-button">Download this template</button>
+      </a>
+      <p class="name-presentation">{{ product.product_name|default:"Unnamed Product" }}</p>
+      <p class="info-presentation">
+        description: {{ product.description|default:"No description available." }}<br>
+        office_created: {{ product.office_created|default:"Not specified" }}<br>
+        morph: {{ product.morph }}<br>
+        premium: {{ product.premium }}<br>
+        favorite: {{ product.favorite }}<br>
+        product_type: {% for tag in product.product_type.all %}{{ tag.tag_name }}{% if not forloop.last %}, {% endif %}{% empty %}None{% endfor %}<br>
+        size: {{ product.size|default:"Not specified" }} MB<br>
+        cost: {{ product.cost|default:"Not specified" }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="slide-thumbnails">
+  {% if product.status == 'failed' %}
+    <p>Slides could not be processed due to an error.</p>
+  {% else %}
+    {% if slide_urls %}
+      {% for slide_url in slide_urls %}
+        <img src="{{ slide_url }}" alt="Slide Thumbnail" class="slide-thumbnail" data-slide-url="{{ slide_url }}">
+      {% empty %}
+        <p>No slides available.</p>
+      {% endfor %}
+    {% else %}
+      <p>No slides available.</p>
+    {% endif %}
+    <img src="{% static 'images/slide1.JPG' %}" alt="Slide Thumbnail" class="slide-thumbnail" data-slide-url="{% static 'images/slide1.JPG' %}">
+  {% endif %}
+</div>
+
+{% if relateds %}
+  <p class="relatedparagraph">Related Presentations</p>
+  <div class="related">
+    {% for related in relateds %}
+      <a class="related-presentations" href="{% url 'Product' related.id %}">
+        {% if related.image_preview %}
+          <img class="related-photo" src="{{ related.image_preview }}" alt="{{ related.product_name }}">
+        {% else %}
+          <img class="related-photo" src="{% static 'images/slide1.JPG' %}" alt="{{ related.product_name }}">
+        {% endif %}
+        <button class="relatedp-format">{{ related.product_name }}</button>
+      </a>
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="relatedparagraph">No related presentations available.</p>
+{% endif %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const thumbnails = document.querySelectorAll('.slide-thumbnail');
+    const mainPreview = document.getElementById('mainPreview');
+    thumbnails.forEach(thumbnail => {
+      thumbnail.addEventListener('click', function() {
+        const newSlideUrl = this.getAttribute('data-slide-url');
+        if (newSlideUrl) {
+          mainPreview.src = newSlideUrl;
+        }
+      });
+    });
+  });
+</script>
+{% endblock %}

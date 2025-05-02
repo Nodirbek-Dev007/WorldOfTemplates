@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #0a0a0a, #1a1a1a);
+  margin: 0;
+  color: #fff;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+h1{
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 600;
+  color: #00ff88;
+  text-shadow: 0 0 5px #00ff88, 0 0 10px #00ff88, 0 0 20px #219ebc;
+  animation: neon-flicker 2s infinite alternate;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes pulse {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.5;
+  }
+}
+
+.center, .container, .form-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 5px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px #00ff88;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  transition: transform 0.9s ease-in-out;
+}
+
+.container:hover, .form-container, .center:hover {
+  transform: scale(1.02);
+}
+
+.imageoftemp {
+  width: 50%;
+  border-radius: 180px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin: 10px 0 10px 0;
+}
+
+input, .placeholder {
+  background: rgba(255, 255, 255, 0.1);
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 15px 10px 15px 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus, .placeholder:focus {
+  box-shadow: 0 0 5px #00ff88, 0 0 10px #00ff88, 0 0 20px #219ebc;
+}
+
+button, .send-button, .submit-btn {
+  background: linear-gradient(to right, #00ff88, #219ebc);
+  color: #ffffff;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover, .send-button:hover, .submit-btn:hover {
+  transform: scale(1.05);
+}
+
+.error, .error-list {
+  color: #9c0000;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.troubleshootpara, .message, h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.small-text {
+  margin: 5px;
+  font-size: 14px;
+  color: #eee;
+}
+
+a {
+  color: #ffffff;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #00ff88;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .message, .troubleshootpara, h2 {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}

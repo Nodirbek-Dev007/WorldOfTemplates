@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
+</head>
+<body>
+    <nav class="thesidebar">
+        <div class="nav-container">
+            <div class="brand">
+                <img src="{% static 'images/logo.png' %}" alt="World of Templates" class="logo-image">
+                <p class="project-name">World of Templates</p>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'Home' %}">Home</a></li>
+                {% if types and user.is_authenticated %}
+                    <li class="dropdown">
+                        <a href="{% url 'types' %}">Templates</a>
+                        <ul class="dropdown-menu">
+                            {% for type in types %}
+                                <li><a href="{% url 'typeproducts' type.tag_name %}">{{ type }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'types' %}">Templates</a></li>
+                {% endif %}
+                <li><a href="{% url 'Contact' %}">Contact</a></li>
+                <li class="profile-container">
+                    {% if user.is_authenticated %}
+                        {% with request.user.customer.username as username %}
+                            <a href="{% url 'profile' %}">
+                                {% if username|length <= 8 %}
+                                    {{ username }}
+                                {% else %}
+                                    {{ username|slice:":5" }}...
+                                {% endif %}
+                            </a>
+                        {% endwith %}
+                        <img src="{{ request.user.customer.image.url }}" alt="User Avatar"  class="user-image">
+                    {% else %}
+                        <a href="{% url 'Login' %}">Login</a>
+                    {% endif %}
+                </li>     
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelector('.dropdown > a').addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                const dropdown = e.target.parentElement;
+                dropdown.classList.toggle('active');
+            }
+        });
+    </script>
+</body>
+</html>

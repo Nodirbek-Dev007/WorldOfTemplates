@@ -1,0 +1,119 @@
+{% load static %}
+
+<footer style="background: #0A0F1E; color: white; padding: 3rem 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 20px;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;">
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; margin-bottom: 2rem;">
+            <!-- Quick Links -->
+            <div style="flex: 1; min-width: 200px;" class="quick-links">
+                <h3 style="font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 600; color: #34D399; margin-bottom: 1rem;">Quick Links</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.5rem;">
+                        <a href="{% url 'Home' %}" style="font-family: 'Inter', sans-serif; font-size: 1rem; color: white; text-decoration: none; position: relative; display: inline-block; transition: color 0.3s ease-in-out;">
+                            <span style="position: relative; display: inline-block; transition: font-size 0.3s ease-in-out, text-shadow 0.3s ease-in-out;">Home</span>
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">
+                        <a href="{% url 'types' %}" style="font-family: 'Inter', sans-serif; font-size: 1rem; color: white; text-decoration: none; position: relative; display: inline-block; transition: color 0.3s ease-in-out;">
+                            <span style="position: relative; display: inline-block; transition: font-size 0.3s ease-in-out, text-shadow 0.3s ease-in-out;">Templates</span>
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">
+                        <a href="{% url 'Contact' %}" style="font-family: 'Inter', sans-serif; font-size: 1rem; color: white; text-decoration: none; position: relative; display: inline-block; transition: color 0.3s ease-in-out;">
+                            <span style="position: relative; display: inline-block; transition: font-size 0.3s ease-in-out, text-shadow 0.3s ease-in-out;">Contact</span>
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">
+                        <a href="{% url 'profile' %}" style="font-family: 'Inter', sans-serif; font-size: 1rem; color: white; text-decoration: none; position: relative; display: inline-block; transition: color 0.3s ease-in-out;">
+                            <span style="position: relative; display: inline-block; transition: font-size 0.3s ease-in-out, text-shadow 0.3s ease-in-out;">Profile</span>
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">
+                        <a href="{% url 'About' %}" style="font-family: 'Inter', sans-serif; font-size: 1rem; color: white; text-decoration: none; position: relative; display: inline-block; transition: color 0.3s ease-in-out;">
+                            <span style="position: relative; display: inline-block; transition: font-size 0.3s ease-in-out, text-shadow 0.3s ease-in-out;">About us</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div style="flex: 1; min-width: 200px;">
+                <h3 style="font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 600; color: #34D399; margin-bottom: 1rem;">Get in Touch</h3>
+                <p style="font-family: 'Inter', sans-serif; font-size: 1rem; color: white; margin-bottom: 0.5rem;">
+                    Email: <a href="mailto:support@worldoftemplates.com" style="color: #00C4B4; text-decoration: none;">support@worldoftemplates.com</a>
+                </p>
+                <p style="font-family: 'Inter', sans-serif; font-size: 1rem; color: white;">
+                    Let’s create stunning presentations together!
+                </p>
+            </div>
+
+            <!-- Social Media -->
+            <div style="flex: 1; min-width: 200px;">
+                <h3 style="font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 600; color: #34D399; margin-bottom: 1rem;">Follow Us</h3>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="https://twitter.com" target="_blank" style="display: inline-block; transition: transform 0.2s;">
+                        <i class="fab fa-x-twitter" style="font-size: 32px; color: white;"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" style="display: inline-block; transition: transform 0.2s;">
+                        <i class="fab fa-instagram" style="font-size: 32px; color: white;"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" style="display: inline-block; transition: transform 0.2s;">
+                        <i class="fab fa-linkedin" style="font-size: 32px; color: white;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div style="text-align: center; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <p style="font-family: 'Inter', sans-serif; font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">
+                © 2025 World of Templates. All rights reserved.
+            </p>
+        </div>
+    </div>
+
+    <style>
+        /* Font Import for Text */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+        /* FontAwesome for Icons */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
+
+        /* Hover Effects for Quick Links */
+        .quick-links a span::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #34D399;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .quick-links a:hover span::after {
+            transform: scaleX(1);
+        }
+
+        .quick-links a:hover {
+            color: #34D399;
+        }
+
+        .quick-links a:hover span {
+            color: #34D399;
+            text-shadow: 0 0 5px #34D399, 0 0 10px #34D399, 0 0 15px #34D399;
+        }
+
+        /* Existing Hover Effects for Social Media Icons */
+        a:hover:not(.quick-links a) {
+            transform: scale(1.05);
+        }
+
+        /* Class for Quick Links Section */
+        .quick-links ul {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+</footer>
